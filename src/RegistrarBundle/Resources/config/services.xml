@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="registrar.event_subscriber" class="RegistrarBundle\EventListener\RegistrarListener">
+            <argument type="service" id="twig" />
+            <argument type="service" id="mailer" />
+
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="registration_executor" class="RegistrarBundle\RegistrationExecutor">
+            <argument type="service" id="doctrine" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+    </services>
+</container>

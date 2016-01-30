@@ -1,0 +1,11 @@
+bitrix:
+    resource: "@BitrixBundle/Resources/config/routing.xml"
+    prefix:   /
+
+registrar:
+    resource: "@RegistrarBundle/Resources/config/routing.xml"
+    prefix:   /registrar
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
